@@ -9,7 +9,10 @@ public class Main {
         System.out.println(isPerfectNumber(28));
         System.out.println(isPerfectNumber(5));
         System.out.println(isPerfectNumber(-1));
-
+        System.out.println("-------numberToWords--------");
+        System.out.println(numberToWords(123));
+        System.out.println(numberToWords(1010));
+        System.out.println(numberToWords(-12));
     }
 
 
@@ -32,6 +35,22 @@ public class Main {
             }
         }
         return sum == number;
+    }
+
+    public static String numberToWords(int number) {
+        if (number < 0) return "Invalid Value";
+        String[] numbers = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+        char[] givenNumbers = String.valueOf(number).toCharArray();
+        String result = "";
+        for (char num : givenNumbers) {
+            int index = Integer.parseInt(Character.toString(num));
+            if (result.equals("")) {
+                result = numbers[index];
+            } else {
+                result = result + " " + numbers[index];
+            }
+        }
+        return result;
     }
 }
 
